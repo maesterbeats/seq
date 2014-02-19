@@ -1,4 +1,8 @@
 /* CSS declarations go here */
+input[type="file"] {
+	overflow: hidden;
+	display: none;
+}
 #track{
 	display: inline-block;
 }

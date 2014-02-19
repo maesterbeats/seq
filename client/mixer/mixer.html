@@ -1,23 +1,32 @@
 <template name="mixer">
-	<div class="btn-group-vertical">
+	<ul class="list-group">
 	{{#each tracks}}
-		{{> uploader}}
-		{{> euclidButton}}
+		<li class="list-group-item">
+			{{> euclidButton}}
+			{{> uploader}}
+		</li>
 	{{/each}}
-	</div>
+	</ul>
+	{{> addRemoveButtons}}
 </template>
 
 
 
 <template name="euclidButton">
-	<button class="btn btn-default btn-sm" id="euclid">Euclid</button>
-	<input type="number" class="number input-sm">
+	<div class="col-sm-5">
+		<div class="input-group input-group-sm">
+			<label id="euclid" class="label label-info">Euclid</label>
+			<input type="number" class="number input-sm col-sm-4">
+		</div>
+	</div>
 </template>
 
 
 
 <template name="uploader">
-	<button class="btn btn-sm btn-default">
-		<input type="file" class="file col-md-6" name="files[]"/>
-	</button>
+	<label class="label label-info">
+		<span class="glyphicon glyphicon-upload"></span>
+		<input type="file" class="file"/>
+		{{message}}
+	</label>
 </template>

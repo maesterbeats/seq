@@ -55,8 +55,8 @@
 		return rotateTo(rev, firstOne)
 
 	formatBeat = (euc)->
-		hits = (i for v,i in euc when v is 1).map (i)-> i + 1
-		accents = (i for v,i in euc when v is 0).map (i)-> i + 1
+		hits = (i for v,i in euc when v is 1).map (i)-> i
+		accents = (i for v,i in euc when v is 0).map (i)-> i
 		return [hits, accents]
 
 	return formatBeat euclid(pulses,steps)

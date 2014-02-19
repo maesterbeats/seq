@@ -10,3 +10,8 @@ Meteor.startup ->
 	Session.setDefault "beat", 0
 	grid = Grid(1)
 	Session.set "grid", grid
+	Session.set "fNames", {}
+	@drawUtils = {
+		drawGrid: null
+	}
+

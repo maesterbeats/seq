@@ -1,14 +1,17 @@
 <template name="grid">
-		<button class="btn btn-info btn-sm" id="addTrack">
-			<span class="label label-info">add track</span>
-		</button>
-
-		<button class="btn btn-info btn-sm" id="removeTrack">
-			<span class="label label-info">remove track</span>
-		</button>
-
-		<div class="well" id="svgContainer">
-			<svg id="svg">
-		</svg>
+	<div class="well" id="svgContainer">
+		<svg id="svg"></svg>
 	</div>
+</template>
+
+
+
+
+<template name="addRemoveButtons">
+	<button class="btn btn-info btn-sm" id="addTrack">
+		<span class="glyphicon glyphicon-plus"></span>
+	</button>
+	<button class="btn btn-info btn-sm" id="removeTrack">
+		<span class="glyphicon glyphicon-minus"></span>
+	</button>
 </template>
