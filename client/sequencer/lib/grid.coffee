@@ -11,9 +11,14 @@
 		isActive = (r,c)->
 			x = Session.get("grid")[r][c]
 			if x is on
-				{fill: "#E1EDB1"}
+				if (c % 4) is 0
+					{fill: "#E1EDB1",stroke: "#3C94EE",strokeWidth: 3.0}
+				else
+					{fill: "#E1EDB1",strokeWidth: 2.0, stroke: "#3C94EE"}
+			else if (c % 4) is 0
+				{fill: "#B5E5DC",stroke: "#3C94EE",strokeWidth: 0.5}
 			else
-				{fill: "#B5E5DC"}
+				{fill: "#B5E5DC", strokeWidth: 0.5,stroke: "#3C94EE"}
 
 		rad = 2
 		grid = Session.get "grid"
@@ -27,7 +32,11 @@
 			dy = y * scale * 0.75 + marg
 			for col, x in row
 				dx = x * scale + marg
-				cell = s.rect(dx, dy, width, height, rad, rad)
+				if x % 4 is 0
+					h = height
+				else
+					h = height * 0.85
+				cell = s.rect(dx, dy, width, h, rad, rad)
 				.attr(isActive(y,x))
 				.data("i", [y,x])
 				.click ->
@@ -39,5 +48,4 @@
 					s.clear()
 					drawGrid()
 				cell.attr
-					stroke: "#09B39C"
-					strokeWidth: 0.5
+

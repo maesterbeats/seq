@@ -63,5 +63,7 @@ getActive = (grid, col)-> (i for row,i in grid when row[col] is on)
 			window.clearTimeout( timerID )
 			return "play"
 		return
+	setBpm = (bpm)->
+		tempo = bpm
 
-	return play
+	return [play, setBpm]

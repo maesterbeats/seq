@@ -34,6 +34,22 @@ Template.clearTrack.events
 		_btn.updateGrid(grid,idx,clearedTrack)
 
 
+Template.deleteTrack.events
+	'click #deleteTrack': (e,t)->
+		[idx,grid, track] = _btn.buttonHelper(e,t)
+
+		grid = (track for track,i in grid when i isnt idx)
+		Session.set "grid", grid
+		drawUtils.drawGrid()
+
+		_buffs = window.BUFFERS
+		filteredBuffers = (buff for buff,i in _buffs when i isnt idx)
+		window.BUFFERS = filteredBuffers
+
+		names = Session.get "fNames"
+		names = (name for name, i in names when i isnt idx)
+		Session.set "fNames", names
+
 ###
 -------------------------------- BUTTON HELPER FUNCTIONS --------------------------------
 ###

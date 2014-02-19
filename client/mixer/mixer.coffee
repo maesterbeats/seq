@@ -9,13 +9,18 @@ Template.uploader.helpers
 		mess = names[this.idx]
 		if mess? then mess else "upload"
 
+
+Template.uploader.rendered = ->
+	input = this.find('input').click()
+
 Template.uploader.events
-	'change .file': (e)->
+	'change .file': (e,i)->
 		target = e.target
+		idx = i.data.idx
 		file = e.target.files
 		updateSessionFiles(file, this)
 		bufferCallback = (bufferList)->
-			window.BUFFERS.push bufferList[0]
+			window.BUFFERS[idx] = bufferList[0]
 		bufferLoader = new BufferLoader window.audioContext, file, bufferCallback
 		bufferLoader.load()
 

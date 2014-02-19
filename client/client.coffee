@@ -6,15 +6,14 @@ Meteor.startup ->
 	@drawUtils = {
 		drawGrid: null
 	}
-
 	window.audioContext = new webkitAudioContext()
-	window.seq = sequencer(window.audioContext)
+	[window.seq, @setBpm] = sequencer(window.audioContext)
 	window.BUFFERS = []
-	grid = Grid(2)
+	grid = Grid(0)
 
 	Session.setDefault "bpm", 120
 	Session.setDefault "beat", 0
 	Session.set "grid", grid
-	Session.set "fNames", {}
+	Session.set "fNames", []
 	Session.set "isPlaying", false
 

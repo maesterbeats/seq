@@ -6,11 +6,10 @@ Template.beat.helpers
 		this * 31 + 15
 	'style': ->
 		beat = Session.get "beat"
-		console.log beat
 		x = this
-		console.log x.toString() is beat.toString
-		if beat.toString() is x.toString()
-			return "fill:red"
-		else
-			return "fill:black"
+		if x and beat
+			if beat.toString() is x.toString()
+				return "fill:red"
+			else
+				return "fill:black"
 

@@ -10,11 +10,13 @@ Template.transport.events =
 		bpm = Session.get "bpm"
 		bpm += 2
 		Session.set "bpm", bpm
+		setBpm(bpm)
 	'click #decBPM': (e)->
 		e.preventDefault()
 		bpm = Session.get "bpm"
 		bpm -= 2
 		Session.set "bpm", bpm
+		setBpm(bpm)
 	'click #startClock': (e)->
 		e.preventDefault()
 		playing = Session.get "isPlaying"
