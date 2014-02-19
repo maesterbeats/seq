@@ -1,0 +1,40 @@
+<template name="rotateButtons">
+		<label class="label label-info">
+			<span class="glyphicon glyphicon-chevron-left" id="rotateLeft"></span>
+			<span class="glyphicon glyphicon-chevron-right" id="rotateRight"></span>
+			rotate
+		</label>
+</template>
+
+<template name="euclidButton">
+	<div class="col-sm-3 euclidBtn">
+		<div class="input-group input-group-sm">
+			<label id="euclid" class="label label-info">Euclid</label>
+			<input type="number" class="number input-sm col-sm-4">
+		</div>
+	</div>
+</template>
+
+<template name="clearTrack">
+		<label class="label label-info">
+			<span class="glyphicon glyphicon-remove-circle" id="clearTrack"></span>
+			clear
+		</label>
+</template>
+
+<template name="inverseButton">
+	<div class="col-sm-3 euclidBtn">
+		<div class="input-group input-group-sm">
+			<label id="invert" class="label label-info">invert</label>
+			<input type="number" class="number input-sm col-sm-4">
+		</div>
+	</div>
+</template>
+
+<template name="uploader">
+	<label class="label label-info">
+		<span class="glyphicon glyphicon-upload"></span>
+		<input type="file" class="file"/>
+		{{message}}
+	</label>
+</template>

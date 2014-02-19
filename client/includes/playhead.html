@@ -1,0 +1,11 @@
+<template name="playhead">
+	<svg width="600" height="15" id="playhead">
+	{{#each beats}}
+		{{> beat}}
+	{{/each}}
+	</svg>
+</template>
+
+<template name="beat">
+	<rect width="25" height="10" x="{{x}}" y="0" style="{{style}}"/>
+</template>

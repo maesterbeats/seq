@@ -16,7 +16,15 @@ Template.transport.events =
 		bpm -= 2
 		Session.set "bpm", bpm
 	'click #startClock': (e)->
-		# console.log e
 		e.preventDefault()
-		window.seq()
+		playing = Session.get "isPlaying"
+		if playing is off
+			Session.set "isPlaying", on
+			window.seq()
+	'click #stopClock': (e)->
+		e.preventDefault()
+		playing = Session.get "isPlaying"
+		if playing is on
+			Session.set "isPlaying", off
+			window.seq()
 

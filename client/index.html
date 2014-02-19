@@ -5,15 +5,12 @@
 <body>
 	{{> topNav}}
 	<div class="container">
+	{{> playhead}}
 		<div class="row" id="svgContainer">
-			<div class="col-sm-6">
-				{{> grid}}
-			</div>
-			<div class="col-sm-5">
-				{{> mixer}}
-			</div>
+			<div class="col-sm-6">{{> grid}}</div>
+			<div class="col-sm-6">{{> mixer}}</div>
 		</div>
-		{{> transport}}
 	</div>
+	{{> transport}}
 </body>
 

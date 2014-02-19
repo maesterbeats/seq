@@ -2,31 +2,14 @@
 	<ul class="list-group">
 	{{#each tracks}}
 		<li class="list-group-item">
+			{{> rotateButtons}}
+			{{> clearTrack}}
 			{{> euclidButton}}
 			{{> uploader}}
+			{{> inverseButton}}
 		</li>
 	{{/each}}
 	</ul>
-	{{> addRemoveButtons}}
 </template>
 
 
-
-<template name="euclidButton">
-	<div class="col-sm-3 euclidBtn">
-		<div class="input-group input-group-sm">
-			<label id="euclid" class="label label-info">Euclid</label>
-			<input type="number" class="number input-sm col-sm-4">
-		</div>
-	</div>
-</template>
-
-
-
-<template name="uploader">
-	<label class="label label-info">
-		<span class="glyphicon glyphicon-upload"></span>
-		<input type="file" class="file"/>
-		{{message}}
-	</label>
-</template>
