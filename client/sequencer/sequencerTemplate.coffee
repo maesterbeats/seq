@@ -1,43 +1,24 @@
+Template.grid.rendered = ->
+	svgElement = document.getElementById("svg")
+	this.drawGrid = makeGrid(svgElement)
+	this.drawGrid()
 
-uploadHandler = (e, name)->
-	file = e.target.files
-	bufferCallback = (bufferList)->
-		window.BUFFERS[name] = bufferList[0]
-	bufferLoader = new BufferLoader window.audioContext, file, bufferCallback
-	bufferLoader.load()
-
-
-Template.sequencer.events =
-	'click input.btn': (e)->
-		console.log e
+Template.grid.events =
+	'click #addTrack': (e, t)->
+		console.log t
 		e.preventDefault()
-		window.seq()
-	'change #kick': (e)->
-		uploadHandler(e, "kick")
-	'change #snare': (e)->
-		uploadHandler(e, "snare")
-	'change #hho': (e)->
-		uploadHandler(e, "hho")
-	'change #hhc': (e)->
-		uploadHandler(e, "hhc")
-
-
-
-
-#-------------------------------------------------------------------
-# Uncomment for midi functionality
-# but be warned, its slower than snot.
-###
-Template.sequencer.rendered = ->
-	onsuccesscallback = ( access )->
-		m = access
-		inputs = m.inputs()
-		console.log "inputs: ", inputs
-		outputs = m.outputs()
-		console.log "outputs: ", outputs
-		window.out = m.outputs()[1]
-	onerrorcallback = ( err )->
-		console.log("uh-oh! Something went wrong!  Error code: " + err.code )
-
-	navigator.requestMIDIAccess().then onsuccesscallback, onerrorcallback
-###
+		grid = Session.get "grid"
+		console.log grid
+		newTrack = track()
+		grid.push newTrack
+		Session.set "grid", grid
+		t.drawGrid()
+	'click #removeTrack': (e, t)->
+		console.log t
+		e.preventDefault()
+		_grid = Session.get "grid"
+		console.log _grid
+		grid = _grid[0...-1]
+		console.log grid
+		Session.set "grid", grid
+		t.drawGrid()

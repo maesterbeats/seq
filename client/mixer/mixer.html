@@ -1,0 +1,23 @@
+<template name="mixer">
+	<div class="btn-group-vertical">
+	{{#each tracks}}
+		{{> uploader}}
+		{{> euclidButton}}
+	{{/each}}
+	</div>
+</template>
+
+
+
+<template name="euclidButton">
+	<button class="btn btn-default btn-sm" id="euclid">Euclid</button>
+	<input type="number" class="number input-sm">
+</template>
+
+
+
+<template name="uploader">
+	<button class="btn btn-sm btn-default">
+		<input type="file" class="file col-md-6" name="files[]"/>
+	</button>
+</template>

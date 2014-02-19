@@ -1,12 +1,13 @@
 {
-  "meteor": {},
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "shark",
+    "commit": "1d24565fb5ed6a5571cd6c037f1a60a092be8eaa"
+  },
   "dependencies": {
     "basePackages": {
       "bootstrap-3": {
         "version": "3.1.0-1"
-      },
-      "Dropzonejs": {
-        "version": "1.0.1"
       }
     },
     "packages": {
@@ -14,11 +15,6 @@
         "git": "https://github.com/mangasocial/meteor-bootstrap-3.git",
         "tag": "v3.1.0-1",
         "commit": "329dccb08bfc18c635676dea600ac9953162cda9"
-      },
-      "Dropzonejs": {
-        "git": "https://github.com/devonbarrett/meteor-dropzone.git",
-        "tag": "v1.0.1",
-        "commit": "aa0e15055a519e72a97d02cffad4b052e840433d"
       }
     }
   }

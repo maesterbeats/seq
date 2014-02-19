@@ -1,12 +1,12 @@
-Meteor.startup () ->
+Meteor.startup ->
+	@track = -> (false for i in [0...16])
+	@Grid = (n)->
+		grid = -> (track() for i in [0...n])
+		return grid()
 	window.audioContext = new webkitAudioContext()
 	window.seq = sequencer(window.audioContext)
 	window.BUFFERS = []
-
-	Session.setDefault "tracks", [
-		{"kick":  [1,0,0,0,1,0,0,0,1,0,0,0,1,0,0,0]},
-		{"snare": [0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0]},
-		{"hho":   [1,0,1,0,1,0,1,0,1,0,1,0,1,0,1,0]},
-		{"hhc":   [0,1,0,1,0,1,0,1,0,1,0,1,0,1,0,1]}
-	]
-
+	Session.setDefault "bpm", 120
+	Session.setDefault "beat", 0
+	grid = Grid(1)
+	Session.set "grid", grid
