@@ -11,6 +11,7 @@ Meteor.startup ->
 	grid = Grid(1)
 	Session.set "grid", grid
 	Session.set "fNames", {}
+
 	@drawUtils = {
 		drawGrid: null
 	}

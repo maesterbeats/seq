@@ -2,22 +2,18 @@
   <title>seq</title>
 </head>
 
-
 <body>
+	{{> topNav}}
 	<div class="container">
-		<nav class="navbar navbar-inverse">
-			{{> transport}}
-		</nav>
-		<div class="row">
-			<div class="well well-sm col-sm-6">
+		<div class="row" id="svgContainer">
+			<div class="col-sm-6">
 				{{> grid}}
 			</div>
+			<div class="col-sm-5">
+				{{> mixer}}
+			</div>
 		</div>
-		<div class="well well-sm col-sm-6">
-			{{> mixer}}
-		</div>
+		{{> transport}}
 	</div>
 </body>
-
-
 
